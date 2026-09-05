@@ -4,13 +4,13 @@ The user has explicitly asked you to use the public `pet-lifestyle-scene-pack` S
 
 Repository: `https://github.com/brucexia007-ui/pet-lifestyle-scene-pack.git`
 
-Release tag: `v1.2.0`
+Release tag: `v1.3.0`
 
 Skill path: repository root
 
 ## Load the Skill without burdening the user
 
-1. If you can use Git and local files, create a new private temporary directory, shallow-clone the tagged repository there with `git clone --depth 1 --branch v1.2.0 https://github.com/brucexia007-ui/pet-lifestyle-scene-pack.git TEMP_PATH`, then read `TEMP_PATH/SKILL.md`. Replace `TEMP_PATH` with the actual safe path you created. Execute these actions yourself; do not ask the user to run them.
+1. If you can use Git and local files, create a new private temporary directory, shallow-clone the tagged repository there with `git clone --depth 1 --branch v1.3.0 https://github.com/brucexia007-ui/pet-lifestyle-scene-pack.git TEMP_PATH`, then read `TEMP_PATH/SKILL.md`. Replace `TEMP_PATH` with the actual safe path you created. Execute these actions yourself; do not ask the user to run them.
 2. If your platform already supports Agent Skills from GitHub, install or load the same tagged Skill through that native mechanism.
 3. If you only have web access, open the GitHub Skill directory, read `SKILL.md`, then fetch only the linked references and requested scene images. Do not claim that the Skill was natively installed.
 4. Keep the user's original pet photos in the current task or a private temporary directory. Never copy them into the cloned repository, generated package, logs, or a public location.

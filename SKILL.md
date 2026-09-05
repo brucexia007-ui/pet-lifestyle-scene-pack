@@ -1,7 +1,7 @@
 ---
 name: pet-lifestyle-scene-pack
-description: 根据用户上传的猫或狗照片、名字、性别、性格与期望场景，生成身份和个性一致的柔和生活写真。支持十三种预设、自定义场景、单图补图与失败场景重做；不用于桌面宠物动画图集。
-metadata: {version: "1.2.0", compatibility: "Codex, Kimi Code, Claude Code; WorkBuddy adapter included"}
+description: 根据用户上传的猫或狗照片、名字、性别、性格、穿搭偏好与期望场景，生成身份、个性和场景穿搭一致的柔和生活写真。支持十三种预设、自定义场景、单图补图与失败场景重做；不用于桌面宠物动画图集。
+metadata: {version: "1.3.0", compatibility: "Codex, Kimi Code, Claude Code; WorkBuddy adapter included"}
 ---
 
 # 宠物生活场景写真套装
@@ -12,6 +12,7 @@ metadata: {version: "1.2.0", compatibility: "Codex, Kimi Code, Claude Code; Work
 
 - 每次任务都读取 [references/identity-lock.md](references/identity-lock.md)，再检查宠物照片。
 - 用户提供性格或自定义场景时读取 [references/personality-and-custom-scenes.md](references/personality-and-custom-scenes.md)。
+- 每个场景都读取 [references/wardrobe-and-accessories.md](references/wardrobe-and-accessories.md)，建立场景穿搭卡。
 - 读取 [references/scene-specs.md](references/scene-specs.md) 中本次需要生成的预设场景；自定义场景不必硬套预设构图。
 - 组织 ImageGen 指令时读取 [references/prompt-template.md](references/prompt-template.md)。
 - 接受输出或修图前读取 [references/qa-and-repair.md](references/qa-and-repair.md)。
@@ -30,11 +31,11 @@ metadata: {version: "1.2.0", compatibility: "Codex, Kimi Code, Claude Code; Work
 2. 分开建立两份约束：外形身份锁定，以及性格画像。性别只接受用户明确提供的值，未知时保持未知；不得由性别或品种套用刻板配色、服装或性格。
 3. 把性格转换为物种合理的耳位、尾势、目光、姿态、动作幅度、道具选择和环境细节。每个场景都应体现同一性格核心，但避免重复同一表情和姿势。
 4. 解析用户期望的场景。用户要求“完整预设套装”时生成十三个预设；指定预设时只生成所选图；提出健身、露营、生日等新场景时，先按自定义场景规范写出场景卡，不强行套用饺饺构图。
-5. 读取用户的配色与配饰偏好。未指定时使用柔和粉彩，但根据宠物毛色和性格调整主次色；蝴蝶结、工牌默认开启且可关闭。不要把粉色、蝴蝶结或饺饺的圆脸当作所有宠物的默认身份。
-6. 除非用户明确要求跳过，先从用户请求中选择一张最能看清正脸和体态的代表场景作为校准预览；包含 `13-work-focused` 时优先使用它。等待用户确认外形、性格表达、配色与配饰后，再生成其余图片。
+5. 为每个场景建立独立穿搭卡。默认采用“自动匹配场景”：优先一件功能性主装备和最多一组辅助配饰，蝴蝶结与工牌均为自动而非全局开启。功能装备与装饰配饰分开处理；用户只关闭装饰配饰时，泳镜、运动发带等场景必需装备仍可保留。不要把同一套配饰复制到整组图片。
+6. 除非用户明确要求跳过，先从用户请求中选择一张最能看清正脸和体态的代表场景作为校准预览；包含 `13-work-focused` 时优先使用它。等待用户确认外形、性格表达、配色与穿搭策略后，再生成其余图片。
 7. 每个场景单独调用一次图像生成工具，输出单张图片；不要一次生成拼图或多面板。预设使用稳定文件名，自定义场景使用 `custom-01-<english-slug>.png` 起的连续名称。
-8. 本地宠物照片和场景参考图都有路径时，将场景参考图与 2–4 张最能覆盖身份的宠物照片一并作为参考，并声明场景图只控制视觉语言。若无法同时传入两类参考，优先传入宠物照片，用文字场景卡控制构图。
-9. 每张输出生成后立即检查身份、性格、动作语义和解剖结构。单张失败只修复该张，最多两轮；不要因一张失败重做已经通过的图片。两轮后仍不合格时，交付其余合格图片并明确列出未解决问题。
+8. 本地宠物照片和场景参考图都有路径时，先检查参考图服饰是否与穿搭卡冲突。无冲突时可与 2–4 张身份照片一并传入，并声明它只控制视觉语言；有冲突时不要传入场景参考图，只用身份照片、文字场景卡和统一美术方向。若生成结果泄漏参考图中的白猫、蝴蝶结或工牌，下一轮必须移除场景参考图后重做。
+9. 每张输出生成后立即检查身份、性格、穿搭、动作语义和解剖结构。单张失败只修复该张，最多两轮；不要因一张失败重做已经通过的图片。两轮后仍不合格时，交付其余合格图片并明确列出未解决问题。
 10. 以独立图片交付，不生成拼图。若有可写本地目录，优先保存为 PNG 并运行 `scripts/validate_pack.py`；否则逐张展示并附场景名称。
 
 ## 参考资产许可

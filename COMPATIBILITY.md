@@ -1,6 +1,6 @@
 # 平台兼容与分发
 
-版本：`1.2.0`
+版本：`1.3.0`
 
 核心 `SKILL.md` 遵循 Agent Skills 的通用目录形式。平台之间只适配发现路径、调用语法、元数据和图像工具名称；身份锁定、性格映射、场景卡、参考图和质量门槛保持一份来源。
 
@@ -40,8 +40,8 @@
 
 打包脚本生成两个包，避免重复维护十三张参考图：
 
-- `pet-lifestyle-scene-pack-universal-v1.2.0.zip`：Codex、Kimi Code、Claude Code。
-- `pet-lifestyle-scene-pack-workbuddy-v1.2.0.zip`：WorkBuddy 专用 Frontmatter 与资源布局。
+- `pet-lifestyle-scene-pack-universal-v1.3.0.zip`：Codex、Kimi Code、Claude Code。
+- `pet-lifestyle-scene-pack-workbuddy-v1.3.0.zip`：WorkBuddy 专用 Frontmatter 与资源布局。
 - `SHA256SUMS.txt`：两个 ZIP 的 SHA-256。
 
 生成物写入调用者明确指定的目录，不提交到源码仓库。

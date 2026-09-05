@@ -47,6 +47,10 @@ Personality expression: <gaze, ears, tail, posture, energy>
 Required props: <only essential props>
 Paw/prop interaction: <exact contact and orientation>
 Depth order: <foreground / pet / background>
+Wardrobe intent: <how clothing supports this scene and personality>
+Primary functional wearable: <one item or none>
+Supporting accessory set: <one set or none>
+Remove explicitly: <accessories from other scenes that must not appear>
 Palette and materials: <adapted to coat and user preference>
 Must avoid: <scene-specific anatomy, direction, text, or safety failures>
 ```
@@ -58,4 +62,4 @@ Must avoid: <scene-specific anatomy, direction, text, or safety failures>
 - 高冷型：端正站在器械旁，神态克制，使用低饱和配色和整齐构图。
 - 慵懒型：坐在垫子上轻碰小哑铃或弹力带，表现“慢悠悠参与”，不得让器械漂浮或使用人手。
 
-不要把健身固定成参考图中的举爪动作；根据性格和宠物身体比例选择更自然的伸展、平衡、慢跑或道具互动。危险、高温、高空或不适合动物的真实活动，应改写为安全的摄影棚布景或玩具化道具。
+不要把健身固定成参考图中的举爪动作；根据性格和宠物身体比例选择更自然的伸展、平衡、慢跑或道具互动。按 [wardrobe-and-accessories.md](wardrobe-and-accessories.md) 建立穿搭卡，例如运动发带、成对腕带或轻量运动背带，并明确移除蝴蝶结和工牌。危险、高温、高空或不适合动物的真实活动，应改写为安全的摄影棚布景或玩具化道具。

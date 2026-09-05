@@ -29,7 +29,18 @@ def copy_universal(destination: Path) -> None:
     shutil.copytree(
         SKILL_ROOT,
         destination,
-        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"),
+        ignore=shutil.ignore_patterns(
+            ".git",
+            ".DS_Store",
+            "Thumbs.db",
+            "__pycache__",
+            "*.pyc",
+            "*.zip",
+            "SHA256SUMS.txt",
+            "dist",
+            "release",
+            "work",
+        ),
     )
 
 
